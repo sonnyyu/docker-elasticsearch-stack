@@ -104,20 +104,15 @@ sudo heartbeat export template > heartbeat.template.json
 
 curl -XPUT -H 'Content-Type: application/json' http://localhost:9200/_template/heartbeat-6.7.1 -d@heartbeat.template.json
 *************************************************************************************
-curl -L -O https://artifacts.elastic.co/downloads/beats/auditbeat/auditbeat-6.7.1-amd64.deb
-
-sudo dpkg -i auditbeat-6.7.1-amd64.deb
-
+curl -L -O https://artifacts.elastic.co/downloads/beats/auditbeat/auditbeat-6.7.1-amd64.deb \
+sudo dpkg -i auditbeat-6.7.1-amd64.deb \
 sudo nano /etc/auditbeat/auditbeat.yml
 
-setup.kibana:
+setup.kibana: \
   host: "localhost:5601" 
   
-sudo auditbeat export template > auditbeat.template.json
-
-curl -XPUT -H 'Content-Type: application/json' http://localhost:9200/_template/auditbeat-6.7.1 -d@auditbeat.template.json
-
-sudo auditbeat setup --dashboards
-
+sudo auditbeat export template > auditbeat.template.json \
+curl -XPUT -H 'Content-Type: application/json' http://localhost:9200/_template/auditbeat-6.7.1 -d@auditbeat.template.json \
+sudo auditbeat setup --dashboards \
 sudo service auditbeat start
-*************************************************************************************
+
