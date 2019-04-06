@@ -31,7 +31,7 @@ sudo rm -rf /var/lib/auditbeat \
 sudo dpkg --purge auditbeat
 *************************************************************************************
 curl http://localhost:9200 \
-curl http://localhost:5601 \
+curl http://localhost:5601 
 
 curl -XPOST -D- 'http://localhost:5601/api/saved_objects/index-pattern' \
  -H 'Content-Type: application/json' \
