@@ -48,14 +48,16 @@ sudo nano /etc/filebeat/filebeat.yml \
 setup.kibana: \
   host: "localhost:5601"  \
 sudo filebeat modules enable system \
-sudo nano /etc/filebeat/modules.d/system.yml \
+sudo nano /etc/filebeat/modules.d/system.yml 
+
 - module: system \
   syslog: \
     enabled: true \
     var.paths: ["/var/log/syslog*"] \
   auth: \
     enabled: true \
-    var.paths: ["/var/log/auth.log*"] \
+    var.paths: ["/var/log/auth.log*"] 
+    
 sudo filebeat setup \
 sudo service filebeat restart
 *************************************************************************************
