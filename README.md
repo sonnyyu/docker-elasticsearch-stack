@@ -36,7 +36,7 @@ curl http://localhost:5601 \
 curl -XPOST -D- 'http://localhost:5601/api/saved_objects/index-pattern' \
  -H 'Content-Type: application/json' \
  -H 'kbn-version: 6.7.1' \
- -d '{"attributes":{"title":"logstash-*","timeFieldName":"@timestamp"}}' \
+ -d '{"attributes":{"title":"logstash-*","timeFieldName":"@timestamp"}}' 
  
 wget https://download.elastic.co/demos/kibana/gettingstarted/logs.jsonl.gz \
 gunzip logs.jsonl.gz \
