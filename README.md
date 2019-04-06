@@ -50,7 +50,7 @@ setup.kibana: \
 sudo filebeat modules enable system \
 sudo nano /etc/filebeat/modules.d/system.yml 
 
-- module: system \
+module: system \
   syslog: \
     enabled: true \
     var.paths: ["/var/log/syslog*"] \
