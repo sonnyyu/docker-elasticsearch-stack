@@ -63,10 +63,10 @@ sudo service filebeat restart
 *************************************************************************************
 curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-6.7.1-amd64.deb \
 sudo dpkg -i metricbeat-6.7.1-amd64.deb \
-sudo nano /etc/metricbeat/metricbeat.yml \
+sudo nano /etc/metricbeat/metricbeat.yml 
 
 setup.kibana:
-  host: "localhost:5601" \
+  host: "localhost:5601" 
 
 sudo metricbeat modules enable system \
 sudo metricbeat setup \
