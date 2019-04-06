@@ -1,51 +1,34 @@
 # docker ELK -  ElasticSearch, Logstash, and Kibana
 *************************************************************************************
-sudo systemctl  stop metricbeat
-
-sudo dpkg --remove metricbeat
-
+sudo systemctl  stop metricbeat \
+sudo dpkg --remove metricbeat \
 sudo rm -rf /etc/metricbeat \
 sudo rm -rf /var/lib/metricbeat\
-sudo dpkg --purge  metricbeat \
+sudo dpkg --purge  metricbeat 
+
 sudo systemctl stop packetbeat \
-sudo dpkg --remove packetbeat  
+sudo dpkg --remove packetbeat  \
+sudo rm -rf /etc/packetbeat \
+sudo rm -rf /var/lib/packetbeat \
+sudo dpkg --purge  packetbeat 
 
-sudo rm -rf /etc/packetbeat
+sudo systemctl  stop filebeat \
+sudo dpkg --remove filebeat \
+sudo rm -rf /etc/filebeat \
+sudo rm -rf /var/lib/filebeat \
+sudo dpkg --purge  filebeat 
 
-sudo rm -rf /var/lib/packetbeat
-
-sudo dpkg --purge  packetbeat
-
-sudo systemctl  stop filebeat
-
-sudo dpkg --remove filebeat
-
-sudo rm -rf /etc/filebeat
-
-sudo rm -rf /var/lib/filebeat
-
-sudo dpkg --purge  filebeat
-
-sudo systemctl  stop heartbeat
-
-sudo dpkg --remove heartbeat
-
-sudo rm -rf /etc/heartbeat
-
-sudo rm -rf /var/lib/heartbeat
-
+sudo systemctl  stop heartbeat \
+sudo dpkg --remove heartbeat \
+sudo rm -rf /etc/heartbeat \
+sudo rm -rf /var/lib/heartbeat \
 sudo dpkg --purge  heartbeat
 
-sudo systemctl  stop auditbeat
-
-sudo dpkg --remove auditbeat
-
-sudo rm -rf /etc/auditbeat
-
-sudo rm -rf /var/lib/auditbeat
-
+sudo systemctl  stop auditbeat \
+sudo dpkg --remove auditbeat \
+sudo rm -rf /etc/auditbeat \
+sudo rm -rf /var/lib/auditbeat \
 sudo dpkg --purge auditbeat
-
 *************************************************************************************
 curl http://localhost:9200
 
