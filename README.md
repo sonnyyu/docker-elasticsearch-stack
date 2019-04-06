@@ -4,15 +4,11 @@ sudo systemctl  stop metricbeat
 
 sudo dpkg --remove metricbeat
 
-sudo rm -rf /etc/metricbeat
-
-sudo rm -rf /var/lib/metricbeat
-
-sudo dpkg --purge  metricbeat
-
-sudo systemctl stop packetbeat
-
-sudo dpkg --remove packetbeat
+sudo rm -rf /etc/metricbeat \
+sudo rm -rf /var/lib/metricbeat\
+sudo dpkg --purge  metricbeat \
+sudo systemctl stop packetbeat \
+sudo dpkg --remove packetbeat  
 
 sudo rm -rf /etc/packetbeat
 
