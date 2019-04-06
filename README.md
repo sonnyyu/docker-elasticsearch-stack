@@ -65,43 +65,34 @@ curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-6.
 sudo dpkg -i metricbeat-6.7.1-amd64.deb \
 sudo nano /etc/metricbeat/metricbeat.yml 
 
-setup.kibana:
+setup.kibana: \
   host: "localhost:5601" 
 
 sudo metricbeat modules enable system \
 sudo metricbeat setup \
 sudo service metricbeat start 
 *************************************************************************************
-sudo apt-get install libpcap0.8 -y
+sudo apt-get install libpcap0.8 -y \
+curl -L -O https://artifacts.elastic.co/downloads/beats/packetbeat/packetbeat-6.7.1-amd64.deb \
+sudo dpkg -i packetbeat-6.7.1-amd64.deb \
+sudo nano /etc/packetbeat/packetbeat.yml 
 
-curl -L -O https://artifacts.elastic.co/downloads/beats/packetbeat/packetbeat-6.7.1-amd64.deb
-
-sudo dpkg -i packetbeat-6.7.1-amd64.deb
-
-sudo nano /etc/packetbeat/packetbeat.yml
-
-setup.kibana:
+setup.kibana: \
   host: "localhost:5601" 
   
-sudo packetbeat setup 
-
+sudo packetbeat setup \
 sudo service packetbeat start
 *************************************************************************************
-curl -L -O https://artifacts.elastic.co/downloads/beats/heartbeat/heartbeat-6.7.1-amd64.deb
+curl -L -O https://artifacts.elastic.co/downloads/beats/heartbeat/heartbeat-6.7.1-amd64.deb \
+sudo dpkg -i heartbeat-6.7.1-amd64.deb \
+sudo nano /etc/heartbeat/heartbeat.yml 
 
-sudo dpkg -i heartbeat-6.7.1-amd64.deb
-
-sudo nano /etc/heartbeat/heartbeat.yml
-
-setup.kibana:
+setup.kibana: \
   host: "localhost:5601" 
   
-sudo heartbeat setup 
-
-sudo service heartbeat-elastic start
-
-sudo heartbeat export template > heartbeat.template.json
-
+sudo heartbeat setup \
+sudo service heartbeat-elastic start \
+sudo heartbeat export template > heartbeat.template.json \
 curl -XPUT -H 'Content-Type: application/json' http://localhost:9200/_template/heartbeat-6.7.1 -d@heartbeat.template.json
 *************************************************************************************
 curl -L -O https://artifacts.elastic.co/downloads/beats/auditbeat/auditbeat-6.7.1-amd64.deb \
