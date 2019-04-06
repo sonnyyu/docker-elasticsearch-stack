@@ -36,8 +36,8 @@ curl http://localhost:5601 \
 curl -XPOST -D- 'http://localhost:5601/api/saved_objects/index-pattern' \
  -H 'Content-Type: application/json' \
  -H 'kbn-version: 6.7.1' \
- -d '{"attributes":{"title":"logstash-*","timeFieldName":"@timestamp"}}'
-
+ -d '{"attributes":{"title":"logstash-*","timeFieldName":"@timestamp"}}' \
+ 
 wget https://download.elastic.co/demos/kibana/gettingstarted/logs.jsonl.gz \
 gunzip logs.jsonl.gz \
 cat logs.jsonl | nc localhost 5000
@@ -45,17 +45,17 @@ cat logs.jsonl | nc localhost 5000
 curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.7.1-amd64.deb \
 sudo dpkg -i filebeat-6.7.1-amd64.deb \
 sudo nano /etc/filebeat/filebeat.yml \
-setup.kibana:
-  host: "localhost:5601"  
+setup.kibana: \
+  host: "localhost:5601"  \
 sudo filebeat modules enable system \
 sudo nano /etc/filebeat/modules.d/system.yml \
-- module: system
-  syslog:
-    enabled: true
-    var.paths: ["/var/log/syslog*"]
-  auth:
-    enabled: true
-    var.paths: ["/var/log/auth.log*"]
+- module: system \
+  syslog: \
+    enabled: true \
+    var.paths: ["/var/log/syslog*"] \
+  auth: \
+    enabled: true \
+    var.paths: ["/var/log/auth.log*"] \
 sudo filebeat setup \
 sudo service filebeat restart
 *************************************************************************************
